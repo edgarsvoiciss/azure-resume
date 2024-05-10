@@ -7,7 +7,7 @@ on:
       branches: 
         - main
       paths:
-        - "frontend/**"
+        - "frontend\\**"
 
 jobs:
   build:
@@ -25,13 +25,13 @@ jobs:
         with:
           azcliversion: 2.59.0
           inlineScript: |
-            az storage blob upload-batch --account-name edvoresumestaticwebsite -d "$web" -s frontend/
+            az storage blob upload-batch --account-name edvoresumestaticwebsite -d "$web" -s frontend\\
       - name: Purge CDN endpoint
         uses: azure/CLI@v2
         with:
           azcliversion: 2.59.0
           inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "myCDN" --name "myEndpoint123" --resource-group "test-rg"
+            az cdn endpoint purge --content-paths  "/*" --profile-name "myCDN" --name "myEndpoint123" --resource-group "test-rg"
 
   # Azure logout
       - name: logout
