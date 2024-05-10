@@ -4,9 +4,10 @@ name: deploy_frontend
 on:
   workflow_dispatch:
     push:
-      branches: [main]
+      branches: 
+        - main
       paths:
-          - "frontend/**"
+        - 'frontend/**'
 
 jobs:
   build:
@@ -25,7 +26,6 @@ jobs:
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.30.0
         inlineScript: |
            az cdn endpoint purge --content-paths  "/*" --profile-name "myCDN" --name "myEndpoint123" --resource-group "test-rg"
 
