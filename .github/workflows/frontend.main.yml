@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -21,16 +21,16 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Upload to blob storage
-      uses: azure/CLI@v2
-      with:
-        azcliversion: 2.59.0
-        inlineScript: |
+        uses: azure/CLI@v2
+        with:
+          azcliversion: 2.59.0
+          inlineScript: |
             az storage blob upload-batch --account-name edvoresumestaticwebsite -d '$web' -s frontend/
       - name: Purge CDN endpoint
-      uses: azure/CLI@v2
-      with:
-        azcliversion: 2.59.0
-        inlineScript: |
+        uses: azure/CLI@v2
+        with:
+          azcliversion: 2.59.0
+          inlineScript: |
            az cdn endpoint purge --content-paths  "/*" --profile-name "myCDN" --name "myEndpoint123" --resource-group "test-rg"
 
   # Azure logout
