@@ -34,7 +34,7 @@ jobs:
     - name: 'Resolve Project Dependencies Using Dotnet'
       shell: bash # For Linux, use bash
       run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
     - name: 'Run unit test'
