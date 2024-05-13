@@ -38,11 +38,11 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
-        
+
     - name: 'Run unit test'
       shell: bash
       run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/tests'
+        pushd './tests'
         dotnet test
 
     - name: 'Run Azure Functions Action'
