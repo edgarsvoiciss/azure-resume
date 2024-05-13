@@ -1,4 +1,5 @@
-name: deploy_backend
+name: deploy_api
+
 
 on: 
     workflow_dispatch:
