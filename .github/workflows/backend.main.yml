@@ -1,11 +1,12 @@
 name: deploy_backend
 
-on:
-  workflow_dispatch:
-  push:
-      branches: [ main ]
+on: 
+    workflow_dispatch:
+    push:
+      branches: [main]
       paths:
-      - 'Backend/**'
+        - 'Backend/**'
+
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'azureresume101'   # set this to your function app name on Azure
