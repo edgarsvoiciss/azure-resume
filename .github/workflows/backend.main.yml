@@ -6,12 +6,12 @@ on:
     push:
       branches: [main]
       paths:
-        - 'api/**'
+        - 'Backend/**'
 
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'azureresume101'   # set this to your function app name on Azure
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'api'       # set this to the path to your function app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'Backend'       # set this to the path to your function app project, defaults to the repository root
   DOTNET_VERSION: '6.x'                   # set this to the dotnet version to use (e.g. '2.1.x', '3.1.x', '5.0.x')
 
 jobs:
@@ -35,14 +35,14 @@ jobs:
     - name: 'Resolve Project Dependencies Using Dotnet'
       shell: bash # For Linux, use bash!
       run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
         dotnet build --configuration Release --output ./output
         popd
 
     - name: 'Run unit test'
       shell: bash
       run: |
-        pushd './tests'
+        pushd '.${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/tests'
         dotnet test
 
     - name: 'Run Azure Functions Action'
