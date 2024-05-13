@@ -24,7 +24,7 @@ jobs:
         with:
           azcliversion: 2.59.0
           inlineScript: |
-            az storage blob upload-batch --account-name edvoresumestaticwebsite -d "$web" --auth-mode key -s 'Frontend/**'
+            az storage blob upload-batch --account-name edvoresumestaticwebsite -d "$web" --auth-mode key -s Frontend/
       - name: Purge CDN endpoint
         uses: azure/CLI@v2
         with:
