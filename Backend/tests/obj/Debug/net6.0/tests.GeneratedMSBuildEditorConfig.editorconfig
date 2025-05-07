@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tests
-build_property.ProjectDir = C:\Users\edvo\OneDrive - Atea\Documents\Cloud_Resume_Project\Test_Resume_Project\azure-resume\tests\
+build_property.ProjectDir = c:\Users\Edgars\Desktop\azure-resume\Backend\tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
